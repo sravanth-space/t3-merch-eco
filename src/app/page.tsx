@@ -1,6 +1,7 @@
 import Link from "next/link";
-
 import { LatestPost } from "~/app/_components/post";
+import { CompanyList } from "~/app/_components/CompanyList";
+import { AddCompanyForm } from "~/app/_components/AddCompanyForm";
 import { auth } from "~/server/auth";
 import { api, HydrateClient } from "~/trpc/server";
 
@@ -19,6 +20,7 @@ export default async function Home() {
           <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
             Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
           </h1>
+
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
@@ -43,6 +45,7 @@ export default async function Home() {
               </div>
             </Link>
           </div>
+
           <div className="flex flex-col items-center gap-2">
             <p className="text-2xl text-white">
               {hello ? hello.greeting : "Loading tRPC query..."}
@@ -62,6 +65,16 @@ export default async function Home() {
           </div>
 
           {session?.user && <LatestPost />}
+
+          {/* New Section for Company Management */}
+          <div className="mt-16 w-full max-w-3xl rounded-lg bg-white p-6 text-black shadow-lg">
+            <h2 className="mb-6 text-center text-3xl font-bold">
+              Company Management
+            </h2>
+            <AddCompanyForm />
+            <hr className="my-6" />
+            <CompanyList />
+          </div>
         </div>
       </main>
     </HydrateClient>
