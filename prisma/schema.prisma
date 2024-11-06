@@ -67,22 +67,24 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
+// Company model represents each company in the database.
 model Company {
-    id        Int       @id @default(autoincrement())
-    name      String
-    ethics    Int
-    price     Int
-    quality   Int
-    products  Product[]
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
+    id          Int       @id @default(autoincrement())
+    name        String    @unique // Ensure unique company names for upsert logic
+    ethics      Int? // Ethics rating (optional)
+    price       Int? // Price rating (optional)
+    quality     Int? // Quality rating (optional)
+    products    Product[] // Relation to products offered by the company
+    createdAt   DateTime  @default(now()) // Date when company was added
+    lastUpdated DateTime  @updatedAt // Auto-updated when company is modified
 }
 
+// Product model represents each product offered by companies.
 model Product {
     id        Int      @id @default(autoincrement())
-    name      String
-    available Boolean
-    companyId Int
+    name      String // Product name
+    available Boolean // Availability status (true/false)
+    companyId Int // Foreign key referencing the company
     company   Company  @relation(fields: [companyId], references: [id])
-    createdAt DateTime @default(now())
+    createdAt DateTime @default(now()) // Date when product was added
 }

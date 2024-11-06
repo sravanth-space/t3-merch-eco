@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Background gradient for the whole app */
+body {
+    background: linear-gradient(135deg, #2e026d, #15162c);
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  /* Main Container styling */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Styling for the Card */
+  .card {
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ff66cc;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ff66cc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ff33aa;
+  }
+  
